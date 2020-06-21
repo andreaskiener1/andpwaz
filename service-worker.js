@@ -33,7 +33,7 @@ self.addEventListener('fetch', async e => {
 async function cacheFirst(req){
   const cache = await caches.open(cacheName);
   const cached = await cache.match(req);
-  return cached || fetsch(req);
+  return cached || fetch(req);
 }
 
 async function networkAndCache(req){
