@@ -1,5 +1,5 @@
 const cacheName = 'pingpong-v1';
-const staticAssets = [ './'];
+const staticAssets = [ './', 'index.html'];
 
 self.addEventListener('install', async e => {
   const cache = await caches.open(cacheName);
