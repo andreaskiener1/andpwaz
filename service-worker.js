@@ -30,20 +30,20 @@ self.addEventListener('fetch', async e => {
   }
 });
 
-async function chacheFirst(req){
+async function cacheFirst(req){
   const cache = await caches.open(cacheName);
   const cached = await cache.match(req);
   return cached || fetsch(req);
 }
 
 async function networkAndCache(req){
-  const cache = await chaches.open(cacheName);
+  const cache = await caches.open(cacheName);
   try{
     const fresh = await fetch(req);
     await cache.put(req, fresh.clone());
     return fresh;
   }catch(e){
-    const chached = await chache.match(req);
+    const cached = await cache.match(req);
     return cached;
   }
 }
