@@ -5,7 +5,7 @@ const staticAssets = [
   './',
   './index.html',
   './manifest.json',
-  './service-worker'
+  './service-worker.js'
   
 ];
 
