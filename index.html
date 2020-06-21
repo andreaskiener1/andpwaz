@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset=utf-8 />
+	
+<!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="PingPong">
+   
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="PingPong">
+   	
+	
+<!-- Homescreen icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+
+
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+	
+	
+	
+	
+<link rel='manifest' href='/manifest.json'>
+<title>Canvas</title>
+</head>
+
+<body>
+<canvas id="MeinCanvas" width="400" height="600"></canvas>
+	
+<script>
+	
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./service-worker.js');
+  });
+}
+	
+//Als globale Variablen deklariert um mit allen Functions darauf zugreifen zu können
+	document.body.style.overflow = 'hidden';
+	
+	var x = 20;
+	var y = 200;
+	var dx = 0.5;
+	var dy = 1;
+	var R =10;
+	var context = MeinCanvas.getContext('2d');
+		
+	var padlx = 50;
+	var counter = 0;
+	var timer;
+	startflag = true;
+	
+	var canv = document.getElementById("MeinCanvas");
+	canv.width = document.documentElement.clientWidth;
+	canv.height = document.documentElement.clientHeight;
+	var WIDTH = canv.width;
+	var HEIGHT = canv.height;
+
+	function init(){
+		
+		document.addEventListener('keydown', function(event){
+			console.log(event);
+			console.log(event.key);
+			if(event.key == 'ArrowLeft' & padlx > 0){
+				padlx = padlx - 5;
+			}
+			if(event.key == 'ArrowRight' & padlx + 150 < WIDTH){
+				padlx = padlx + 5;
+			}
+			if(event.key == 'Enter'){
+				 timer = setInterval(draw, 5);
+				
+			}
+			
+		
+		});
+		
+		window.ondevicemotion = function(ereignis){
+		
+ 
+   			var xgyro = Math.round(ereignis.accelerationIncludingGravity.x * 100) / 100;
+			padlx = padlx - xgyro;
+			
+			var xaccel = Math.round(ereignis.acceleration.x);
+  			var yaccel = Math.round(ereignis.acceleration.y);
+			var zaccel = Math.round(ereignis.acceleration.z);
+			
+			if(xaccel^2 + yaccel^2 + zaccel^2 > 10 && startflag ){ 
+				timer = setInterval(draw, 5);
+				startflag = false;
+			}
+			
+			
+		}
+		//timer = setInterval(draw, 5);
+		draw();
+	
+	}
+
+	function ball(x, y , r){
+		context.fillStyle = "#00A3B1";
+		context.beginPath();
+		context.arc(x, y, r, 0, Math.PI * 2, true);
+		context.closePath();
+		context.fill();
+	}
+	
+	function padl(x){
+		context.fillStyle = "#B1A308";
+		//context.beginPath();
+		context.fillRect(x, HEIGHT -50, 150, 20);
+		//context.closePath();
+		//context.fill();
+	}
+
+	function clear(){
+		//context.clearRect(0, 0, WIDTH, HEIGHT);
+		context.fillStyle = "lightgrey";
+		context.fillRect(0, 0,  WIDTH, HEIGHT);
+	}
+
+
+	function draw(){
+		
+		clear()
+		padl(padlx);
+		ball(x, y, 10)
+		if (x > WIDTH - R || x < 0 + R){
+			dx = -dx;
+		}
+		if (y > HEIGHT - R || y < 0 + R){
+			dy = -dy;
+		}
+		
+		if (y > HEIGHT - (R + 1)){
+		
+			var ausgabe = "GAME OVER, SCORE: " + counter;
+			context.font = "25px Arial";
+			context.fillText(ausgabe, 10, 50);
+			clearInterval(timer);
+			timer = 0;//zur Sicherheit auch noch null setzten
+			startflag = true;
+		}
+		
+		if( y > (HEIGHT -50 - 20 + R) & y < (HEIGHT -50 + 20 + R) & x > padlx & x < padlx + 150 )
+		{
+			dy = -dy;
+			counter++;
+			console.log(counter);
+		}
+		
+		x = x + dx;
+		y = y - dy;
+	}
+
+	init();
+
+
+</script>
+</body>
+
+</html>
