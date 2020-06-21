@@ -1,18 +1,18 @@
-//const cacheName = 'pingpong-v1';
+const cacheName = 'pingpong-v1';
 
-/*
+
 const staticAssets = [ '/index.html'];
 
 self.addEventListener('install', async e => {
   const cache = await caches.open(cacheName);
   await cache.addAll(staticAssets);
-  return self.skriptWaiting();
+  return self.skiptWaiting();
 });
 
 self.addEventListener('acitvate', e => {
   self.clients.claim();
 });
-*/
+/*
 'use strict';
 var currentCache = {
   offline: 'pingpong-v2'
@@ -30,3 +30,4 @@ this.addEventListener('install', event => {
     })
   );
 });
+*/
