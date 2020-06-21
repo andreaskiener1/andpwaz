@@ -3,7 +3,10 @@ const cacheName = 'pingpong-v1';
 
 const staticAssets = [ 
   './',
-  './index.html'
+  './index.html',
+  './manifest.json',
+  '.service-worker',
+  './icons
 ];
 
 self.addEventListener('install', async e => {
