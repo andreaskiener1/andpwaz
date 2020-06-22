@@ -1,4 +1,23 @@
 {
+  "name": "PingPong",
+  "version": "1.0.0",
+  "description": "PingPong",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "copyfiles": "^1.2.0",
+    "workbox-cli": "^3.5.0"
+  }
+}
+/*
+{
   "name": "PinPong",
   "version": "2.0.0",
   "description": "PingPong",
@@ -28,3 +47,4 @@
     "installable web app"
   ]
 }
+*/
