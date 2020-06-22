@@ -3,7 +3,7 @@ const cacheName = 'pingpong-v1';
 
 const staticAssets = [ 
   './',
-  './index2.html',
+  './index.html',
   './manifest.json',
   './service-worker.js'
   
