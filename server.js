@@ -1,4 +1,4 @@
-
+/*
 var express = require('express')
 var path = require('path')
 
@@ -18,3 +18,18 @@ app.get('/', function(request, response) {
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 })
+*/
+
+const express = require('express');
+const app = express();
+
+// This serves static files from the specified directory
+app.use(express.static(__dirname));
+
+const server = app.listen(8081, () => {
+
+  const host = server.address().address;
+  const port = server.address().port;
+
+  console.log('App listening at http://%s:%s', host, port);
+});
