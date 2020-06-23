@@ -7,12 +7,12 @@ app.set('port', (process.env.PORT || 5000));
 
 //https://blog.pixelbeard.co/index.php/2019/02/05/something-out-of-nothing-building-a-pwa-without-a-framework/
 //app.use(express.static(path.join(__dirname)));
-app.use(express.static(path.join(__dirname)));
+app.use("/", express.static(path.join(__dirname)));
 
 //var dateipfad = path.join(__dirname, 'public', 'index.html')
 var dateipfad = path.join(__dirname, 'index.html');
  
-app.get('/', function(request, response) {
+app.get("/*", function(request, response) {
     response.sendFile(dateipfad);
 });
 
