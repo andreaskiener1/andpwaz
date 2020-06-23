@@ -50,22 +50,3 @@ async function networkAndCache(req){
 
 
 
-/*
-'use strict';
-var currentCache = {
-  offline: 'pingpong-v2'
-};
-
-const offlineUrl = 'index.html';
-
-this.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(currentCache.offline).then(function(cache) {
-      return cache.addAll([
-         // './icons/icon.svg',
-          offlineUrl
-      ]);
-    })
-  );
-});
-*/
