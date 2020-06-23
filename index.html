@@ -34,6 +34,7 @@
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('./service-worker.js');
+	console.log("Servive Worker registered");	  
   });
 }
 
@@ -83,7 +84,7 @@ if ('serviceWorker' in navigator) {
    			var xgyro = Math.round(ereignis.accelerationIncludingGravity.x * 100) / 100;
 			padlx = padlx - xgyro;
 			
-			var xaccel = Math.round(ereignis.acceleration.x);
+			var xaccel = 0;//Math.round(ereignis.acceleration.x);
   			var yaccel = Math.round(ereignis.acceleration.y);
 			var zaccel = Math.round(ereignis.acceleration.z);
 			
