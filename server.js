@@ -14,8 +14,8 @@ var dateipfad = path.join(__dirname, 'index.html');
  
 app.get("/", function(request, response) {
     response.type('html');
-    //response.sendFile(dateipfad);
-    response.render(dateipfad);
+    response.sendFile(dateipfad);
+   
 });
 
 app.listen(app.get('port'), function() {
