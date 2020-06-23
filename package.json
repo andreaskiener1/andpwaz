@@ -2,9 +2,9 @@
   "name": "PinPong",
   "version": "2.0.0",
   "description": "PingPong",
-  "main": "index.html",
+  "main": "./index.html",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server"
   },
   "dependencies": {
     "express": "^4.16.4",
@@ -12,7 +12,8 @@
     "node-fetch": "^2.3.0"
   },
   "engines": {
-    "node": "8.x"
+    "node": "9.5.0",
+    "npm": "6.0.1"
   },
   "repository": {
     "type": "git",
