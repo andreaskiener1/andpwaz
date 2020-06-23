@@ -12,7 +12,7 @@ app.use("/", express.static(path.join(__dirname)));
 //var dateipfad = path.join(__dirname, 'public', 'index.html')
 var dateipfad = path.join(__dirname, 'index.html');
  
-app.get("/", function(request, response) {
+app.get(function(request, response) {
     response.type('html');
     response.sendFile(dateipfad);
    
