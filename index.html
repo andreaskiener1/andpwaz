@@ -88,7 +88,7 @@ if ('serviceWorker' in navigator) {
   			var yaccel = Math.round(ereignis.acceleration.y);
 			var zaccel = Math.round(ereignis.acceleration.z);
 			
-			if(xaccel^2 + yaccel^2 + zaccel^2 > 10 && startflag ){ 
+			if(xaccel^2 + yaccel^2 + zaccel^2 > 20 && startflag ){ 
 				timer = setInterval(draw, 3);
 				startflag = false;
 			}
