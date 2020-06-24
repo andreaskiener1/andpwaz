@@ -71,7 +71,7 @@ if ('serviceWorker' in navigator) {
 				padlx = padlx + 5;
 			}
 			if(event.key == 'Enter'){
-				 timer = setInterval(draw, 5);
+				 timer = setInterval(draw, 4);
 				
 			}
 			
@@ -89,13 +89,13 @@ if ('serviceWorker' in navigator) {
 			var zaccel = Math.round(ereignis.acceleration.z);
 			
 			if(xaccel^2 + yaccel^2 + zaccel^2 > 10 && startflag ){ 
-				timer = setInterval(draw, 5);
+				timer = setInterval(draw, 4);
 				startflag = false;
 			}
 			
 			
 		}
-		timer = setInterval(draw, 5);
+		//timer = setInterval(draw, 5);
 		draw();
 	
 	}
