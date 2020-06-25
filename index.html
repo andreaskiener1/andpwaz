@@ -28,10 +28,12 @@
 
 <body>
 <canvas id="MeinCanvas"></canvas>
-	<div>test</div>
-<button id="leftbutton" onclick="left()"> left </button>
-<button id="startbutton" onclick="start()"> start </button>
-<button id="rightbutton" onclick="right()"> right </button>
+<div id="buttons">
+<button id="leftbutton"> <------------ left </button>
+<button id="startbutton"> ------- start ------- </button>
+<button id="rightbutton"> right ------------> </button>
+</div>
+
 	
 <script>
 
@@ -42,7 +44,13 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-documnent.getElementById("startbutton").style.alignItems = "center";	
+document.getElementById("buttons").style.textAlign = "center";	
+document.getElementById('startbutton').addEventListener('click', start);
+document.getElementById('leftbutton').addEventListener('click', left);
+document.getElementById('rightbutton').addEventListener('click', right);	
+	
+
+	
 	
 //Als globale Variablen deklariert um mit allen Functions darauf zugreifen zu können
 	document.body.style.overflow = 'hidden';
@@ -65,6 +73,19 @@ documnent.getElementById("startbutton").style.alignItems = "center";
 	var WIDTH = canv.width;
 	var HEIGHT = canv.height;
 
+	function start() {
+   		timer = setInterval(draw, 3);
+	}
+	
+	function left() {
+		padlx = padlx - 30;
+	}
+	
+	function right() {
+		    padlx = padlx + 30;
+	}
+	
+	
 	function init(){
 		
 		document.addEventListener('keydown', function(event){
