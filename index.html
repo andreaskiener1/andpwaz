@@ -60,7 +60,7 @@ documnent.getElementById("startbutton").style.alignItems = "center";
 	
 	var canv = document.getElementById("MeinCanvas");
 	canv.width = document.documentElement.clientWidth;
-	canv.height = document.documentElement.clientHeight;
+	canv.height = document.documentElement.clientHeight - 50;
 	var WIDTH = canv.width;
 	var HEIGHT = canv.height;
 
@@ -150,7 +150,7 @@ documnent.getElementById("startbutton").style.alignItems = "center";
 			startflag = true;
 		}
 		
-		if( y > (HEIGHT -50 - 20 + R) & y < (HEIGHT -50 + 20 + R) & x > padlx & x < padlx + 150 )
+		if( y > (HEIGHT -50 - 20 + R) & y < (HEIGHT - 50 + 20 + R) & x > padlx & x < padlx + 150 )
 		{
 			dy = -dy;
 			counter++;
