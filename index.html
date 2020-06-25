@@ -28,6 +28,9 @@
 
 <body>
 <canvas id="MeinCanvas" width="400" height="600"></canvas>
+<button id="leftbutton" onclick="left()"> <-------- </button>
+<button id="startbutton" onclick="start()"> start </button>
+<button id="rightbutton" onclick="start()"> --------> </button>
 	
 <script>
 
@@ -38,6 +41,8 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+documnent.getElementById("startbutton").style.alignItems = "center";	
+	
 //Als globale Variablen deklariert um mit allen Functions darauf zugreifen zu können
 	document.body.style.overflow = 'hidden';
 	
